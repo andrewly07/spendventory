@@ -2,9 +2,9 @@ body{
   background-color: #fffefe;
 }
 .header{
-  background-color: #093864;
+  background-color: 	#014421;
   color: aliceblue;
-  font-family: 'Graduate', cursive;
+  font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
 }
 .wrapper{
@@ -57,16 +57,16 @@ body{
   cursor: pointer;
 }
 .addButton, .addButton:hover, .addButton:active, .addButton:focus{
-  background-color: #093864;
-  border-color: #093864;
+  background-color: #146409;
+  border-color: 146409;
 }
 .cancelButton{
-  background-color: #E06C00;
-  border-color: #E06C00;
+  background-color: rgb(224, 0, 0);
+  border-color:  rgb(224, 0, 0);
 }
 .cancelButton:hover, .cancelButton:active{
-  background-color: #d36804;
-  border-color: #d36804;
+  background-color: #ff1313;
+  border-color: #ff1313;
 }
 .icon{
   line-height: inherit;
@@ -78,11 +78,13 @@ body{
   padding-top: .5%;
 }
 .editText{
-  background-color: #32699c;
-  color: aliceblue;
+  background-color: #faf3dc;
+  color: black;
 }
 .deleteModalBody{
   text-align: center;
+  background: #ca2c2c;
+  color: whitesmoke;
 }
 .deleteModalFooter{
   margin: auto;
@@ -93,7 +95,7 @@ body{
 footer {
   bottom: 0;
   height: 5vh;
-  background-color: #093864;
+  background-color: #014421;
   color: aliceblue;
   text-align: center;
   font-size: small;

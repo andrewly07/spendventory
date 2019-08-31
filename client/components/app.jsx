@@ -1,60 +1,61 @@
 import React from 'react';
 import Header from './header';
-import GradeTable from './grade-table';
-import GradeForm from './grade-form';
+import BillTable from './bill-table';
+import BillForm from './bill-form';
 import { Row, Container } from 'reactstrap';
+// import About from './about';
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      grades: [],
-      gradeToBeEdited: {
+      bills: [],
+      billToBeEdited: {
         id: 0,
         name: '',
-        course: '',
-        grade: ''
+        description: '',
+        bill: ''
       }
     };
-    this.getAllGrades = this.getAllGrades.bind(this);
-    this.addGrade = this.addGrade.bind(this);
-    this.deleteGrade = this.deleteGrade.bind(this);
+    this.getAllBills = this.getAllBills.bind(this);
+    this.addBill = this.addBill.bind(this);
+    this.deleteBill = this.deleteBill.bind(this);
     this.handleReset = this.handleReset.bind(this);
   }
 
   componentDidMount() {
-    this.getAllGrades();
+    this.getAllBills();
   }
 
-  getAllGrades() {
-    fetch('/api/grades')
-      .then(grades => grades.json())
-      .then(grades => {
-        this.setState({ grades: grades });
+  getAllBills() {
+    fetch('/api/bills')
+      .then(bills => bills.json())
+      .then(bills => {
+        this.setState({ bills: bills });
       });
   }
 
-  addGrade(newGrade) {
+  addBill(newBill) {
     const post = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newGrade)
+      body: JSON.stringify(newBill)
     };
-    fetch('api/grades', post)
+    fetch('api/bills', post)
       .then(response => response.json())
-      .then(grade => {
-        const allGrades = this.state.grades.concat(grade);
-        this.setState({ grades: allGrades });
+      .then(bill => {
+        const allBills = this.state.bills.concat(bill);
+        this.setState({ bills: allBills });
       });
   }
 
   getAverage() {
-    const gradeInfo = this.state.grades;
+    const billInfo = this.state.bills;
     let newTotal = 0;
-    for (let grade of gradeInfo) {
-      newTotal += parseInt(grade.grade);
+    for (let bill of billInfo) {
+      newTotal += parseInt(bill.bill);
     }
-    const average = newTotal / gradeInfo.length;
+    const average = newTotal / billInfo.length;
     const total = average.toFixed(2);
     if (isNaN(total)) {
       return 'N/A';
@@ -62,67 +63,68 @@ class App extends React.Component {
     return total;
   }
 
-  deleteGrade(id) {
-    fetch('/api/grades/' + id, {
+  deleteBill(id) {
+    fetch('/api/bills/' + id, {
       method: 'DELETE'
     }).then(() => {
-      let grades = this.state.grades.filter(grade => grade.id !== id);
-      this.setState({ grades });
+      let bills = this.state.bills.filter(bill => bill.id !== id);
+      this.setState({ bills });
     });
   }
 
-  updateGrade(grade) {
-    fetch(`api/grades/${grade.id}`, {
+  updateBill(bill) {
+    fetch(`api/bills/${bill.id}`, {
       method: 'PUT',
-      body: JSON.stringify(grade),
+      body: JSON.stringify(bill),
       headers: {
         'Content-Type': 'application/json'
       }
     })
       .then(res => res.json())
-      .then(updatedGrade => {
-        const grades = this.state.grades.map(grade =>
-          grade.id === updatedGrade.id ? updatedGrade : grade
+      .then(updatedBill => {
+        const bills = this.state.bills.map(bill =>
+          bill.id === updatedBill.id ? updatedBill : bill
         );
-        this.setState({ grades });
+        this.setState({ bills });
       });
   }
 
-  setEditing(grade) {
-    this.setState({ gradeToBeEdited: grade });
+  setEditing(bill) {
+    this.setState({ billToBeEdited: bill });
   }
 
-  submitGrade(grade) {
-    if (grade.id === 0) {
-      this.addGrade(grade);
+  submitBill(bill) {
+    if (bill.id === 0) {
+      this.addBill(bill);
       this.setState({
-        gradeToBeEdited: {
+        billToBeEdited: {
           id: 0,
           name: '',
-          course: '',
-          grade: ''
+          description: '',
+          bill: ''
         }
       });
     } else {
-      this.updateGrade(grade);
+      this.updateBill(bill);
       this.setState({
-        gradeToBeEdited: {
+        billToBeEdited: {
           id: 0,
           name: '',
-          course: '',
-          grade: ''
+          description: '',
+          bill: ''
         }
       });
     }
   }
 
   handleReset(event) {
+    event.preventDefault();
     this.setState({
-      gradeToBeEdited: {
+      billToBeEdited: {
         id: 0,
         name: '',
-        course: '',
-        grade: ''
+        description: '',
+        bill: ''
       }
     });
   }
@@ -132,18 +134,20 @@ class App extends React.Component {
     return (
       <div className="wrapper">
         <Container fluid>
-          <Header average={newAverage} className="mb-3" />
+          <Header average={newAverage} className="mb-3"
+
+          />
         </Container>
         <Container fluid className="bottom">
           <Row>
-            <GradeTable
-              grades={this.state.grades}
-              deleteGrade={this.deleteGrade.bind(this)}
+            <BillTable
+              bills={this.state.bills}
+              deleteBill={this.deleteBill.bind(this)}
               setEditing={this.setEditing.bind(this)}
             />
-            <GradeForm
-              onSubmit={this.submitGrade.bind(this)}
-              gradeToBeEdited={this.state.gradeToBeEdited}
+            <BillForm
+              onSubmit={this.submitBill.bind(this)}
+              billToBeEdited={this.state.billToBeEdited}
               onReset={this.handleReset.bind(this)}
             />
           </Row>
@@ -152,5 +156,3 @@ class App extends React.Component {
     );
   }
 }
-
-export default App;

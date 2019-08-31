@@ -1,14 +1,14 @@
 import React from 'react';
 import { InputGroup, InputGroupAddon, Input, Form, FormGroup, Button } from 'reactstrap';
 
-class GradeForm extends React.Component {
+export default class BillForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       id: 0,
       name: '',
-      course: '',
-      grade: '',
+      description: '',
+      bill: '',
       message: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,8 +16,8 @@ class GradeForm extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.gradeToBeEdited.id !== prevProps.gradeToBeEdited.id) {
-      this.setState(this.props.gradeToBeEdited);
+    if (this.props.billToBeEdited.id !== prevProps.billToBeEdited.id) {
+      this.setState(this.props.billToBeEdited);
     }
   }
 
@@ -27,18 +27,19 @@ class GradeForm extends React.Component {
     this.setState({
       id: 0,
       name: '',
-      course: '',
-      grade: '',
+      description: '',
+      bill: '',
       message: ''
     });
   }
 
   handleReset(event) {
+    event.preventDefault();
     this.setState({
       id: 0,
       name: '',
-      course: '',
-      grade: '',
+      description: '',
+      bill: '',
       message: ''
     });
   }
@@ -57,8 +58,8 @@ class GradeForm extends React.Component {
     }
   }
 
-  courseValidate(event) {
-    if (this.state.course.length >= 1) {
+  descriptionValidate(event) {
+    if (this.state.description.length >= 1) {
       this.setState({
         [event.target.name]: event.target.value,
         message: ''
@@ -66,13 +67,13 @@ class GradeForm extends React.Component {
     } else {
       this.setState({
         [event.target.name]: event.target.value,
-        message: 'Please enter a valid course'
+        message: 'Please enter a valid description'
       });
     }
   }
 
-  gradeValidate(event) {
-    if (this.state.grade <= 100 && this.state.grade > 0) {
+  billValidate(event) {
+    if (this.state.bill <= 100 && this.state.bill > 0) {
       this.setState({
         [event.target.name]: event.target.value,
         message: ''
@@ -80,7 +81,7 @@ class GradeForm extends React.Component {
     } else {
       this.setState({
         [event.target.name]: event.target.value,
-        message: 'Must be between 0-100'
+        message: 'Please enter a valid amount'
       });
     }
   }
@@ -89,16 +90,16 @@ class GradeForm extends React.Component {
     let regex = /\d+/;
     let addButton;
     if (
-      this.state.grade <= 100 &&
-      this.state.grade >= 0 &&
-      regex.test(this.state.grade) &&
+      this.state.bill <= 100 &&
+      this.state.bill >= 0 &&
+      regex.test(this.state.bill) &&
       this.state.name.length >= 1 &&
-      this.state.course.length >= 1
+      this.state.description.length >= 1
     ) {
       addButton = <Button color="success" className="addButton">
         {this.state.id === 0 ? 'Add' : 'Update'}</Button>;
     } else {
-      addButton = <Button color="secondary" disabled className="addButton">Please fill out form</Button>;
+      addButton = <Button disabled className="addButton">Add Expense</Button>;
     }
     let editText;
     if (this.state.id === 0) {
@@ -118,7 +119,7 @@ class GradeForm extends React.Component {
               <Input
                 type="text"
                 className={editText}
-                placeholder="Name"
+                placeholder="Vendor"
                 name="name"
                 value={this.state.name}
                 onChange={event => {
@@ -131,16 +132,16 @@ class GradeForm extends React.Component {
             <InputGroup>
               <InputGroupAddon
                 addonType="prepend"
-                className="input-group-text fas fa-list-alt icon"
+                className="input-group-text fas fa-pencil-alt icon"
               />
               <Input
                 type="text"
                 className={editText}
-                placeholder="Course"
-                name="course"
-                value={this.state.course}
+                placeholder="Description"
+                name="description"
+                value={this.state.description}
                 onChange={event => {
-                  this.courseValidate(event);
+                  this.descriptionValidate(event);
                 }}
               />
             </InputGroup>
@@ -149,16 +150,16 @@ class GradeForm extends React.Component {
             <InputGroup>
               <InputGroupAddon
                 addonType="prepend"
-                className="input-group-text fas fa-graduation-cap icon cap"
+                className="input-group-text fas fa-dollar-sign icon cap"
               />
               <Input
                 type="number"
                 className={editText}
-                placeholder="Grade"
-                name="grade"
-                value={this.state.grade}
+                placeholder="Amount"
+                name="bill"
+                value={this.state.bill}
                 onChange={event => {
-                  this.gradeValidate(event);
+                  this.billValidate(event);
                 }}
               />
             </InputGroup>
@@ -181,5 +182,3 @@ class GradeForm extends React.Component {
     );
   }
 }
-
-export default GradeForm;
