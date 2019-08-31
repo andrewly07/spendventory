@@ -1,23 +1,25 @@
 {
-  "grades": [
+  "bills": [
     {
-      "name": "Dan Paschal",
-      "course": "Web Development",
-      "grade": 100,
-      "id": 1
-    },
-    {
-      "id": 2,
-      "name": "Scott ",
-      "course": "Web Development",
-      "grade": 100,
+      "id": 4,
+      "name": "Spectrum",
+      "description": "Internet Bill",
+      "bill": "55.00",
       "message": ""
     },
     {
-      "name": "Tim Davis",
-      "course": "Web Development",
-      "grade": 50,
-      "id": 3
+      "id": 5,
+      "name": "Netflix",
+      "description": "Streaming Service",
+      "bill": "14.99",
+      "message": ""
+    },
+    {
+      "id": 6,
+      "name": "Ralphs",
+      "description": "Grocery Store",
+      "bill": "100.00",
+      "message": ""
     }
   ]
 }

@@ -1,8 +1,8 @@
 import React from 'react';
-import Grade from './grade';
+import Bill from './bill';
 import { Table, Col } from 'reactstrap';
 
-class GradeTable extends React.Component {
+export default class BillTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,12 +16,12 @@ class GradeTable extends React.Component {
     }));
   }
   render() {
-    let grade = this.props.grades.map(grade => {
+    let bill = this.props.bills.map(bill => {
       return (
-        <Grade
-          grade={grade}
-          key={grade.id}
-          deleteGrade={this.props.deleteGrade}
+        <Bill
+          bill={bill}
+          key={bill.id}
+          deletebill={this.props.deleteBill}
           setEditing={this.props.setEditing}
         />
       );
@@ -31,17 +31,15 @@ class GradeTable extends React.Component {
         <Table hover striped bordered>
           <thead>
             <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Course</th>
-              <th scope="col">Grade</th>
-              <th scope="col" />
+              <th scope="col">Vendor</th>
+              <th scope="col">Description</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Edit</th>
             </tr>
           </thead>
-          <tbody>{grade}</tbody>
+          <tbody>{bill}</tbody>
         </Table>
       </Col>
     );
   }
 }
-
-export default GradeTable;
