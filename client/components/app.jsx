@@ -3,7 +3,6 @@ import Header from './header';
 import BillTable from './bill-table';
 import BillForm from './bill-form';
 import { Row, Container } from 'reactstrap';
-// import About from './about';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -49,17 +48,13 @@ export default class App extends React.Component {
       });
   }
 
-  getAverage() {
+  getTotal() {
     const billInfo = this.state.bills;
     let newTotal = 0;
     for (let bill of billInfo) {
-      newTotal += parseInt(bill.bill);
+      newTotal += parseFloat(bill.bill);
     }
-    const average = newTotal / billInfo.length;
-    const total = average.toFixed(2);
-    if (isNaN(total)) {
-      return 'N/A';
-    }
+    const total = newTotal.toFixed(2);
     return total;
   }
 
@@ -130,11 +125,11 @@ export default class App extends React.Component {
   }
 
   render() {
-    let newAverage = this.getAverage();
+    let newTotal = this.getTotal();
     return (
       <div className="wrapper">
         <Container fluid>
-          <Header average={newAverage} className="mb-3"
+          <Header total={newTotal} className="mb-3"
 
           />
         </Container>
@@ -144,10 +139,11 @@ export default class App extends React.Component {
               bills={this.state.bills}
               deleteBill={this.deleteBill.bind(this)}
               setEditing={this.setEditing.bind(this)}
+              updateBill={this.updateBill.bind(this)}
             />
             <BillForm
               onSubmit={this.submitBill.bind(this)}
-              billToBeEdited={this.state.billToBeEdited}
+              // billToBeEdited={this.state.billToBeEdited}
               onReset={this.handleReset.bind(this)}
             />
           </Row>

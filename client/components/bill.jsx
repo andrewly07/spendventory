@@ -24,8 +24,8 @@ export default class Bill extends React.Component {
           <div className="tableButton">
             <i
               className="far fa-edit editButton"
-              onClick={event => {
-                this.props.setEditing({
+              onClick={ () => {
+                this.props.setUpdateModal({
                   id: this.props.bill.id,
                   name: this.props.bill.name,
                   description: this.props.bill.description,
@@ -48,7 +48,7 @@ export default class Bill extends React.Component {
               <ModalFooter className="deleteModalFooter">
                 <Button
                   color="danger"
-                  onClick={event => {
+                  onClick={() => {
                     this.props.deleteBill(this.props.bill.id);
                   }}
                 >

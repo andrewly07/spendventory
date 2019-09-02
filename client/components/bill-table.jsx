@@ -1,33 +1,61 @@
 import React from 'react';
 import Bill from './bill';
 import { Table, Col } from 'reactstrap';
+import BillUpdateModal from './bill-update-modal';
 
 export default class BillTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
+      currentId: '',
+      currentName: '',
+      currentDescription: '',
+      currentBill: ''
     };
-    this.toggle = this.toggle.bind(this);
+    this.setUpdateModal = this.setUpdateModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
-  toggle() {
+
+  setUpdateModal(billInfo) {
     this.setState(prevState => ({
-      modal: !prevState.modal
+      modal: !prevState.modal,
+      currentId: billInfo.id,
+      currentName: billInfo.name,
+      currentDescription: billInfo.description,
+      currentBill: billInfo.bill
     }));
   }
+
+  closeModal() {
+    this.setState({
+      modal: false,
+      currentId: '',
+      currentName: '',
+      currentDescription: '',
+      currentBill: ''
+    });
+  }
+
   render() {
     let bill = this.props.bills.map(bill => {
       return (
         <Bill
           bill={bill}
           key={bill.id}
-          deletebill={this.props.deleteBill}
-          setEditing={this.props.setEditing}
+          deleteBill={this.props.deleteBill}
+          // setEditing={this.props.setEditing}
+          setUpdateModal={this.setUpdateModal}
         />
       );
     });
     return (
       <Col sm="8" className="table">
+        <BillUpdateModal
+          currentBillInfo = {this.state}
+          closeModal = {this.closeModal}
+          updateBill={this.props.updateBill}
+        />
         <Table hover striped bordered>
           <thead>
             <tr>

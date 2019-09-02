@@ -15,11 +15,11 @@ export default class BillForm extends React.Component {
     this.handleReset = this.handleReset.bind(this);
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.billToBeEdited.id !== prevProps.billToBeEdited.id) {
-      this.setState(this.props.billToBeEdited);
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.billToBeEdited.id !== prevProps.billToBeEdited.id) {
+  //     this.setState(this.props.billToBeEdited);
+  //   }
+  // }
 
   handleSubmit(event) {
     event.preventDefault();
@@ -73,7 +73,7 @@ export default class BillForm extends React.Component {
   }
 
   billValidate(event) {
-    if (this.state.bill <= 100 && this.state.bill > 0) {
+    if (this.state.bill > 0) {
       this.setState({
         [event.target.name]: event.target.value,
         message: ''
@@ -90,8 +90,7 @@ export default class BillForm extends React.Component {
     let regex = /\d+/;
     let addButton;
     if (
-      this.state.bill <= 100 &&
-      this.state.bill >= 0 &&
+      this.state.bill > 0 &&
       regex.test(this.state.bill) &&
       this.state.name.length >= 1 &&
       this.state.description.length >= 1

@@ -20,7 +20,7 @@ body{
   font-size: 3em;
   margin: auto;
 }
-.average{
+.total{
   font-size: 2em;
   text-align: center;
   margin: auto;
@@ -57,8 +57,8 @@ body{
   cursor: pointer;
 }
 .addButton, .addButton:hover, .addButton:active, .addButton:focus{
-  background-color: #146409;
-  border-color: 146409;
+  background-color: #1e882c;
+  border-color: #1e882c;
 }
 .cancelButton{
   background-color: rgb(224, 0, 0);
@@ -91,6 +91,9 @@ body{
 }
 .modal-content{
   top:25vh;
+}
+.modal-update-contents{
+  top: -25vh;
 }
 footer {
   bottom: 0;

@@ -6,10 +6,7 @@ function Header(props) {
   return (
     <Row className= "header">
       <Col className="title">$pendventory</Col>
-      {/* <i className="fas fa-info-circle about-icon"></i>
-      <i className="fas fa-info-circle about-icon"></i> */}
-
-      <Col sm="4" className="average">Total Due:<Badge className="badge" color="secondary">${props.average}</Badge></Col>
+      <Col sm="4" className="total">Total Due:<Badge className="badge" color="secondary">${props.total}</Badge></Col>
     </Row>
   );
 }
