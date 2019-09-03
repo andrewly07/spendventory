@@ -1,4 +1,5 @@
 const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '/../.env') });
 const jsonServer = require('json-server');
 
 const dbPath = path.resolve(__dirname, '../database/db.json');
