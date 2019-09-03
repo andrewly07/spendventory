@@ -2,24 +2,99 @@
   "bills": [
     {
       "id": 4,
-      "name": "Spectrum",
-      "description": "Internet Bill",
-      "bill": "55.00",
-      "message": ""
+      "name": "something",
+      "description": "a bill",
+      "bill": "200.00"
     },
     {
       "id": 5,
-      "name": "Netflix",
-      "description": "Streaming Service",
-      "bill": "14.99",
+      "name": "NetFlix",
+      "description": "Movie Streaming Services",
+      "bill": "16.00",
       "message": ""
     },
     {
       "id": 6,
       "name": "Ralphs",
       "description": "Grocery Store",
-      "bill": "100.00",
+      "bill": "110.17",
       "message": ""
+    },
+    {
+      "id": 7,
+      "name": "Tesla",
+      "description": "Model 3 Sedan",
+      "bill": "41490.00",
+      "message": ""
+    },
+    {
+      "id": 8,
+      "name": "Apple Music",
+      "description": "Music Streaming Services",
+      "bill": "5.99",
+      "message": ""
+    },
+    {
+      "id": 9,
+      "name": "SoCal Edison",
+      "description": "Electricity Bill",
+      "bill": "163.79",
+      "message": "Please enter a valid amount"
+    },
+    {
+      "id": 10,
+      "name": "Verizon",
+      "description": "Phone bill",
+      "bill": "100"
+    },
+    {
+      "id": 11,
+      "name": "Walmart",
+      "description": "Blu-ray Player",
+      "bill": "53.00",
+      "message": ""
+    },
+    {
+      "id": 12,
+      "name": "In-N-Out",
+      "description": "Burger Lunch Meal ",
+      "bill": "4.50",
+      "message": ""
+    },
+    {
+      "id": 13,
+      "name": "Dick's Sporting Goods",
+      "description": "Hayabusa Boxing Gloves",
+      "bill": "249.99",
+      "message": ""
+    },
+    {
+      "id": 14,
+      "name": "Pantages Theater",
+      "description": "Musical Tickets",
+      "bill": "350.00",
+      "message": ""
+    },
+    {
+      "id": 16,
+      "name": "Philz Coffee",
+      "description": "Coffee",
+      "bill": "12.92",
+      "message": ""
+    },
+    {
+      "id": 17,
+      "name": "Ford",
+      "description": "Is crap",
+      "bill": "2000.00",
+      "message": ""
+    },
+    {
+      "id": 18,
+      "name": "test1",
+      "description": "a test",
+      "bill": "1",
+      "message": "Please enter a valid amount"
     }
   ]
 }
