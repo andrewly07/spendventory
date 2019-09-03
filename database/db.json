@@ -2,8 +2,8 @@
   "bills": [
     {
       "id": 4,
-      "name": "something",
-      "description": "a bill",
+      "name": "Spectrum",
+      "description": "Internet Bill",
       "bill": "200.00"
     },
     {
@@ -84,17 +84,15 @@
     },
     {
       "id": 17,
-      "name": "Ford",
-      "description": "Is crap",
-      "bill": "2000.00",
-      "message": ""
+      "name": "Spirit Airlines",
+      "description": "Plane trip to San Francisco",
+      "bill": "150.00"
     },
     {
       "id": 18,
-      "name": "test1",
-      "description": "a test",
-      "bill": "1",
-      "message": "Please enter a valid amount"
+      "name": "Barnes & Nobles",
+      "description": "Science Fiction Novel",
+      "bill": "25.00"
     }
   ]
 }
