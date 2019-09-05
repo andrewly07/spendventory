@@ -15,7 +15,7 @@ setInterval(() => {
   fs.writeFile(dbPath, JSON.stringify(data, null, 2), () => {
     db.read();
   });
-}, 1000 * 60 * 60 * 24);
+}, 1000 * 60 * 5);
 
 server.use(middleware);
 server.use('/api', endpoints);
