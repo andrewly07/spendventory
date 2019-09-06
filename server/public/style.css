@@ -1,98 +1,104 @@
-body{
+body {
   background-color: #fffefe;
 }
-.header{
-  background-color: 	#014421;
+.header {
+  background-color: #014421;
   color: aliceblue;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
 }
-.wrapper{
+.wrapper {
   min-height: 95vh;
 }
-.logo{
+.logo {
   width: 6%;
   height: 100%;
-  padding: .25%;
+  padding: 0.25%;
   margin: auto;
 }
-.title{
+.title {
   font-size: 3em;
   margin: auto;
 }
-.total{
+.total {
   font-size: 2em;
   text-align: center;
   margin: auto;
 }
-.badge{
+.badge {
   margin-left: 1%;
 }
-.bottom{
+.bottom {
   margin-top: 1%;
 }
-.table{
+.table {
   text-align: center;
   font-size: 16px;
 }
-.buttons{
+.buttons {
   text-align: center;
 }
-.addButton, .cancelButton{
+.addButton,
+.cancelButton {
   margin-right: 1%;
   margin-top: 1%;
 }
-.tableButton{
+.tableButton {
   margin: auto;
 }
-.editButton{
+.editButton {
   margin-right: 10%;
   color: cornflowerblue;
 }
-.deleteButton{
+.deleteButton {
   color: #ca2c2c;
 }
-.editButton, .deleteButton{
+.editButton,
+.deleteButton {
   font-size: larger;
   cursor: pointer;
 }
-.addButton, .addButton:hover, .addButton:active, .addButton:focus{
+.addButton,
+.addButton:hover,
+.addButton:active,
+.addButton:focus {
   background-color: #1e882c;
   border-color: #1e882c;
 }
-.cancelButton{
+.cancelButton {
   background-color: rgb(224, 0, 0);
-  border-color:  rgb(224, 0, 0);
+  border-color: rgb(224, 0, 0);
 }
-.cancelButton:hover, .cancelButton:active{
+.cancelButton:hover,
+.cancelButton:active {
   background-color: #ff1313;
   border-color: #ff1313;
 }
-.icon{
+.icon {
   line-height: inherit;
 }
-.cap{
-  font-size: .9em;
+.cap {
+  font-size: 0.9em;
 }
-.footerText{
-  padding-top: .5%;
+.footerText {
+  padding-top: 0.5%;
 }
-.editText{
+.editText {
   background-color: #faf3dc;
   color: black;
 }
-.deleteModalBody{
+.deleteModalBody {
   text-align: center;
   background: #ca2c2c;
   color: whitesmoke;
 }
-.deleteModalFooter{
+.deleteModalFooter {
   margin: auto;
 }
-.modal-content{
-  top:25vh;
+.modal-content {
+  top: 25vh;
 }
-.modal-update-contents{
+.modal-update-contents {
   top: -25vh;
 }
 footer {
@@ -104,32 +110,32 @@ footer {
   font-size: small;
 }
 @media (max-width: 990px) {
-  .title{
-      font-size: 1.5em;
+  .title {
+    font-size: 1.5em;
   }
-  .average{
-      font-size: 1.5em;
+  .average {
+    font-size: 1.5em;
   }
-  .table{
-      font-size: 12px;
+  .table {
+    font-size: 12px;
   }
 }
 @media (max-height: 320px) {
-  .title{
-      text-align: center;
+  .title {
+    text-align: center;
   }
 }
 @media (orientation: portrait) {
-  .logo{
-      display: none
+  .logo {
+    display: none;
   }
-  .title{
-      text-align: center;
-      font-size: 1.5em;
-      padding: 0;
+  .title {
+    text-align: center;
+    font-size: 1.5em;
+    padding: 0;
   }
-  .average{
-      padding: 0;
-      font-size: 1.5em;
+  .average {
+    padding: 0;
+    font-size: 1.5em;
   }
 }
